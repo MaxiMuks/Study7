@@ -13,17 +13,54 @@ body {
 
 .container {
     background-color: white;
+    border-top: 10px solid #95520B;
+    border-bottom: 10px solid #95520B;
     min-height: 100vh;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    max-width: 800px;
+}
+
+.Title {
+    color: burlywood;
+}
+
+.WriteArea {
+    width: 75vh;
+    height: 35px;
+    border-color: #6D3A04;
+    border: 1px solid #6D3A04;
+}
+
+.WriteArea::-webkit-input-placeholder {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.add {
+    background-color: bisque;
+    border: 1px solid bisque;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.add:hover {
+    background-color: rosybrown;
+    border: 1px solid rosybrown;
+    cursor: pointer;
+}
+
+.input_area {
+    margin-bottom: 10px;
 }
 
 .task_area {
-    border: 1px solid lightgray;
+    border: 1px solid #6D3A04;
 }
 
 .task_tabs {
     display: flex;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #6D3A04;
     position: relative;
 }
 
@@ -45,4 +82,9 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 1em;
+}
+
+.taskDone {
+    text-decoration: line-through;
+    background-color: lightgray;
 }
