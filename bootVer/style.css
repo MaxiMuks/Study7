@@ -69,22 +69,33 @@ body {
 }
 
 #under_line {
-    height: 4px;
-    background-color: blue;
+    background-color: bisque;
     position: absolute;
-    width: 80px;
-    left: 0px;
+    width: 0px;
+    height: 4px;
+    left: 54px;
     top: 52px;
     padding: 0px;
+    transition: 0.5s;
 }
 
 .task {
     display: flex;
     justify-content: space-between;
     padding: 1em;
+    border-bottom: 1px solid #6D3A04;
+    width: 100%;
 }
 
 .taskDone {
     text-decoration: line-through;
     background-color: lightgray;
+}
+
+.taskBtn {
+    right : 50px;
+}
+
+.task_tabs div {
+    cursor: pointer;
 }
