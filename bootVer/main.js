@@ -2,10 +2,10 @@
 // 유저가 +버튼을 누르면 값이 추가된다. ㅇ
 // 유저가 췍 버튼 누르면 내용에 줄이 그려진다. (t > f) ㅇ
 // 반대로 돌리기 버튼 누르면 즐이 사라진다. ㅇ
-// 유저가 Del버튼을 누르면 값이 삭제된다.
-// 탭 누르면, 언더바가 이동한다.
-// 완료탭은 끝낸 값만, 진행중탭은 진행중인 값만 들어가기
-// 전체탭 누르면 다시 전체 값으로 돌아옴
+// 유저가 Del버튼을 누르면 값이 삭제된다. ㅇ
+// 탭 누르면, 언더바가 이동한다. ㅇ
+// 완료탭은 끝낸 값만, 진행중탭은 진행중인 값만 들어가기 ㅇ
+// 전체탭 누르면 다시 전체 값으로 돌아옴 ㅇ
 
 let taskInput = document.getElementById("task_input");
 let addBtn = document.getElementById("add_btn");
@@ -16,15 +16,22 @@ let tabs = document.querySelectorAll(".task_tabs div");
 let horizontalUnderLine = document.getElementById("under_line");
 let horizontalMenus = document.querySelectorAll(".all, .ing, .done");
 // console.log(horizontalMenus)
+// 클릭 이벤트
 addBtn.addEventListener("click", addTask);
+// 엔터로 글 등록(How to add enter event javascript 검색)
+taskInput.addEventListener("keypress", function(event){
+    if(event.key == "Enter") {
+        event.preventDefault();
+        document.getElementById("add_btn").click();
+    }
+});
 
-horizontalMenus.forEach(menu => menu.addEventListener("click", (e) => horizontalIndicator(e)));
+horizontalMenus.forEach((menu) => menu.addEventListener("click", (e) => horizontalIndicator(e.currentTarget)));
 
 function horizontalIndicator(e) {
-    horizontalUnderLine.style.left = e.currentTarget.offsetLeft + "px";
-    horizontalUnderLine.style.width = e.currentTarget.offsetWidth + "px";
-    horizontalUnderLine.style.top = e.currentTarget.offsetTop + 
-                            e.currentTarget.offsetHeight + "px";
+    horizontalUnderLine.style.left = e.offsetLeft + "px";
+    horizontalUnderLine.style.width = e.offsetWidth + "px";
+    horizontalUnderLine.style.top = e.offsetTop + e.offsetHeight + "px";
 }
 
 
@@ -58,17 +65,21 @@ function render() {
     }
     let resultHTML = "";
 
+{/* <i class="fa-solid fa-rotate fa-xl Check_icon" style="color: #9dafcd;"></i> 
+    <i class="fa-solid fa-circle-check fa-xl Check_icon" style="color: #11e481;"></i>
+*/}
+
     for(let i=0; i<list.length; i++) {
         if(list[i].isComplete == true) {
             resultHTML +=  `
                             <div class="task">
-                                <div class="taskDone">${list[i].taskContent}</div>
+                                <span class="taskDone">${list[i].taskContent}</span>
                                 <div class="taskBtn">
-                                    <button onclick="CheckBtn('${list[i].id}')">
-                                        <i class="fa-solid fa-rotate fa-xl fa-bounce" style="color: #9dafcd;"></i>
+                                    <button class="btn" onclick="CheckBtn('${list[i].id}')">
+                                        <i class="fa-solid fa-rotate fa-xl Check_icon" style="color: #9dafcd;"></i> 
                                     </button>
-                                    <button onclick="DeleteBtn('${list[i].id}')"> 
-                                        <i class="fa-regular fa-trash-can fa-xl fa-bounce" style="color: #9a0e0e;"></i>
+                                    <button class="btn" onclick="DeleteBtn('${list[i].id}')"> 
+                                        <i class="fa-regular fa-trash-can fa-xl Del_icon" style="color: #9a0e0e;"></i>
                                     </button>
                                 </div>
                             </div>
@@ -76,13 +87,13 @@ function render() {
         } else {
             resultHTML +=  `
                             <div class="task">
-                                <div>${list[i].taskContent}</div>
+                                <span>${list[i].taskContent}</span>
                                 <div>
-                                    <button onclick="CheckBtn('${list[i].id}')">
-                                        <i class="fa-solid fa-circle-check fa-xl fa-bounce" style="color: #11e481;"></i>
+                                    <button class="btn" onclick="CheckBtn('${list[i].id}')">
+                                        <i class="fa-solid fa-circle-check fa-xl Check_icon" style="color: #11e481;"></i>
                                     </button>
-                                    <button onclick="DeleteBtn('${list[i].id}')"> 
-                                        <i class="fa-regular fa-trash-can fa-xl fa-bounce" style="color: #9a0e0e;"></i>
+                                    <button class="btn" onclick="DeleteBtn('${list[i].id}')"> 
+                                        <i class="fa-regular fa-trash-can fa-xl Del_icon" style="color: #9a0e0e;"></i>
                                     </button>
                                 </div>
                             </div>
