@@ -11,7 +11,7 @@ body {
     background-size: cover;
 }
 
-.container {
+/* .container {
     background-color: snow;
     border-top: 10px solid #95520B;
     border-bottom: 10px solid #95520B;
@@ -22,18 +22,6 @@ body {
 
 .Title {
     color: bisque;
-}
-
-.WriteArea {
-    width: 75vh;
-    height: 35px;
-    border-color: #6D3A04;
-    border: 1px solid #6D3A04;
-}
-
-.WriteArea::-webkit-input-placeholder {
-    font-weight: bold;
-    padding-left: 10px;
 }
 
 .add {
@@ -70,26 +58,30 @@ body {
 
 #under_line {
     background-color: bisque;
+    height: 4px !important;
     position: absolute;
-    width: 0px;
-    height: 4px;
-    left: 54px;
     top: 52px;
-    padding: 0px;
+    left: 0px;
+    width: 63px;
     transition: 0.5s;
+    padding: 0px;
 }
 
 .task {
     display: flex;
     justify-content: space-between;
-    /* padding: 1em; */
     border-bottom: 1px solid #6D3A04;
     width: 100%;
 }
 
+.task span {
+    padding: 1em;
+  }
+
 .taskDone {
     text-decoration: line-through;
     background-color: lightgray;
+    transition: 0.5s;
 }
 
 .taskBtn {
@@ -98,12 +90,12 @@ body {
 
 .task_tabs div {
     cursor: pointer;
-}
+} */
 
 /* 
     부트스트랩에서 가져온 버튼은 아이콘을 넣든 내용을 넣든 테두리가 생기기때문에 꼴보기 싫으니 지워줌
 */
-.btn:active, .btn:focus {
+/* .btn:active, .btn:focus {
     outline:none !important;
     box-shadow:none !important;
     
@@ -112,7 +104,6 @@ body {
 .input {
     width: 80%;
     transition: padding-top 0.2s ease, margin-top 0.2s ease;
-    /* border: none; */
     border: 1px solid #6D3A04;
     padding-right: 30px;
 }
@@ -143,3 +134,192 @@ body {
     top: 63px;
     color: #333;
   }
+
+  .button-box {
+    display: flex;
+  }
+  
+  .button-box button {
+    height: 100%;
+    border: none;
+    width: 5em;
+    margin: 0;
+    background-color: white;
+    transition: 0.5s;
+  }
+  .button-box button :active {
+    position: relative;
+    top: 2px;
+  }
+  
+  .button-box button:first-child:hover {
+    background-color: greenyellow;
+  }
+  .button-box button:nth-child(2):hover {
+    background-color: rgb(255, 0, 0, 0.3);
+  }
+  
+  .fa-check {
+    color: limegreen;
+  }
+  
+  .fa-trash {
+    color: red;
+  }
+  .fa-undo-alt {
+    color: lightslategray;
+  } */
+.container {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    max-width: 800px;
+    border-top: 10px solid #95520B;
+    border-bottom: 10px solid #95520B;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.Title {
+    color: bisque;
+}
+
+.input-area {
+    position: relative;
+}
+
+.task-input {
+    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    width: 80%;
+    border: none;
+    border: 1px solid #95520B;
+}
+
+.task-input:focus {
+    outline: none;
+    border-bottom: 3px solid #95520B;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    transition: 0.5s;
+    padding-top: 35px;
+}
+  
+.task-input + label > span {
+    /* font-weight: 500; */
+    margin: 0;
+    position: absolute;
+    color: #8f8f8f;
+    font-size: 14px;
+    top: 3px;
+    left: 10px;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+  
+.task-input:focus + label > span {
+    top: 0px;
+    color: #333;
+}
+  
+.button-add {
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: blanchedalmond;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+}
+
+.button-add:hover {
+    background-color: navajowhite;
+}
+
+.button-add:active {
+    background-color: #f3f4f6;
+    box-shadow: -1px 2px 5px rgba(81, 41, 10, 0.15),
+      0px 1px 1px rgba(81, 41, 10, 0.15);
+    transform: translateY(0.125rem);
+}
+  
+.task-list-container {
+    border: 1px solid #95520B;
+    margin-top: 1em;
+    position: relative;
+}
+
+.tab-type {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+  
+.tab-type div {
+    padding: 1em;
+    cursor: pointer;
+}
+  
+#tab-underline {
+    background-color: bisque;
+    height: 4px !important;
+    position: absolute;
+    top: 52px;
+    left: 0px;
+    width: 48px;
+    transition: 0.5s;
+    padding: 0px;
+}
+  
+.task {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    position: relative;
+}
+
+.task span {
+    padding: 1em;
+}
+
+.button-box {
+    display: flex;
+}
+  
+.button-box button {
+    height: 100%;
+    border: none;
+    width: 5em;
+    margin: 0;
+    background-color: white;
+    transition: 0.5s;
+}
+
+.button-box button :active {
+    position: relative;
+    top: 2px;
+}
+  
+.button-box button:first-child:hover {
+    background-color: greenyellow;
+}
+
+.button-box button:nth-child(2):hover {
+    background-color: rgb(255, 0, 0, 0.3);
+}
+  
+.fa-check {
+    color: limegreen;
+}
+  
+.fa-trash {
+    color: red;
+}
+
+.fa-undo-alt {
+    color: lightslategray;
+}
+  
+.task-done {
+    text-decoration: line-through;
+    background-color: lightgray;
+    transition: 0.5s;
+}
