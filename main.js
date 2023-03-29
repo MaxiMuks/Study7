@@ -74,7 +74,6 @@
 //     if(mode == "all") {
 //         list = taskList;
 //     } else if(mode == "ing" || mode == "done"){
-//         // if(mode == "ing" || mode == "done")
 //         list = filterList;
 //     }
 
