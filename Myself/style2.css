@@ -1,0 +1,166 @@
+body {
+    margin: 0px;
+    background-image: url(./img/backImg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    background-color: white;
+    height: 100%;
+    min-height: 100vh;
+    max-width: 800px;
+    border-top: 10px solid pink;
+    border-bottom: 10px solid pink;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+h1 {
+    color: deepskyblue;
+    text-shadow: 2px 2px 3px pink;
+}
+
+.input {
+    width: 75vh;
+    border: 2px solid deepskyblue;
+    transition: padding-top 0.5s ease, margin-top 0.5s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid deepskyblue;
+    transition: 0.5s;
+    padding-top: 35px;
+}
+
+.input + label > span {
+    margin: 0;
+    color: lightgray;
+    position: absolute;
+    top: 69px;
+    right: 1010px;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+.input:focus + label > span{
+    color: deepskyblue;
+    text-shadow: 1px 1px 2px pink;
+}
+
+.add_btn {
+    background-color: lightskyblue;
+    border: 1px solid lightskyblue;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    font-weight: bold;
+}
+
+.add_btn:hover {
+    background-color: #fff;
+    border: 1px solid lightskyblue;
+    color: #000;
+    transition: 0.3s;
+}
+
+.add_btn:active{
+    color: gray;
+    background-color: snow;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    transform: translateY(0.125rem);
+}
+
+.task_area {
+    margin-top: 10px;
+    border: 2px solid deepskyblue;
+}
+
+.task_tabs {
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid deepskyblue;
+    color: deepskyblue;
+    text-shadow: 2px 2px 3px pink;
+}
+
+.task_tabs div {
+    padding: 1em;
+    cursor: pointer;
+}
+
+#underLine {
+    position: absolute;
+    height: 4px;
+    background-color: pink;
+    width: 50px;
+    top: 52px;
+    padding: 0px;
+    transition: 0.5s;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid deepskyblue;
+    /* padding: 1em; */
+    /* height: 45px; */
+}
+
+.task span {
+    padding: 1em;
+}
+
+.task_btn {
+    display: flex;
+}
+
+.task_btn button{
+    background-color: #fff;
+    border: none;
+    margin: 0px;
+    height: 100%;
+    width: 5em;
+    transition: 0.5s;
+}
+
+.task_btn button:active {
+    position: relative;
+    top: 2px;
+}
+
+.fa-circle-check {
+    color: mediumseagreen;
+}
+
+.fa-circle-xmark {
+    color: red;
+}
+
+.fa-rotate-left {
+    color: lightsteelblue;
+}
+
+.task_btn button:first-child:hover {
+    background-color: palegreen;
+}
+
+.task_btn button:nth-child(2):hover {
+    background-color: rgb(255, 0, 0, 0.3);
+}
+
+.task_done {
+    text-decoration: line-through;
+    background-color: lightblue;
+    transition: 0.5s;
+}

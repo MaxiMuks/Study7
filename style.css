@@ -188,7 +188,7 @@ body {
 }
 
 .task-input {
-    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    transition: padding-top 0.5s ease, margin-top 0.5s ease;
     width: 80%;
     border: none;
     border: 1px solid #95520B;
@@ -212,8 +212,8 @@ body {
     font-size: 14px;
     top: 3px;
     left: 10px;
-    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 }
   
 .task-input:focus + label > span {
@@ -293,7 +293,7 @@ body {
     transition: 0.5s;
 }
 
-.button-box button :active {
+.button-box button:active {
     position: relative;
     top: 2px;
 }
