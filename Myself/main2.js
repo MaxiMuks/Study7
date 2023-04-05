@@ -26,7 +26,7 @@ function tabLine(e) {
 };
 
 // 탭 이동
-for(let i=1; i<tabs.length; i++) {
+for(let i = 0; i < tabs.length; i++) {
     tabs[i].addEventListener("click", function(e) {
         Filter(e)
     });
@@ -50,14 +50,16 @@ function UIPart() {
     let resultHTML = "";
     let list = [];
 
-    if(mode == "all") {
+    if(mode === "all") {
         list = TaskList;
-    } else if(mode == "onGoing" || mode == "done") {
+    } else {
         list = FilterList;
-    }
+    }    
+    // } else if(mode == "onGoing" || mode == "done") {
+    //     list = FilterList;
 
     for(let i = 0; i < list.length; i++) {
-        if(list[i].isComplete == true) {
+        if(list[i].isComplete) {
             resultHTML += ` <div class="task task_done" id="${list[i].id}">
                                 <span>${list[i].TaskContents}</span>
                                 <div class="task_btn">
@@ -82,49 +84,52 @@ function UIPart() {
 // 완료버튼
 function CheckBtn(id) {
     for(let i = 0; i < TaskList.length; i++) {
-        if(TaskList[i].id == id) {
+        if(TaskList[i].id === id) {
             TaskList[i].isComplete = !TaskList[i].isComplete;
             break;
         };
     };
-    UIPart();
+    Filter();
     console.log(TaskList);
 }; 
 
 // 삭제버튼
 function DeleteBtn(id) {
     for(let i = 0; i < TaskList.length; i++) {
-        if(TaskList[i].id == id) {
+        if(TaskList[i].id === id) {
             TaskList.splice(i,1)
-            break;
+            // break;
         };
     };
-    UIPart();
+    Filter();
     console.log(id, "삭제");
 };
 
 // 탭
 function Filter(e) {
-    mode = e.target.id;
+    if(e) {
+        mode = e.target.id;
+    }
     FilterList = [];
 
-    if(mode == "all") {
-        UIPart();
-    } else if(mode == "onGoing") {
+    // if(mode == "all") {
+    //     UIPart();
+    // } else
+    if(mode === "onGoing") {
         for(let i = 0; i < TaskList.length; i++) {
-                if(TaskList[i].isComplete == false) {
-                    FilterList.push(TaskList[i]);
-                };
-        };
-        UIPart();
-    } else if(mode == "done") {
-        for(let i = 0; i < TaskList.length; i++) {
-            if(TaskList[i].isComplete == true) {
+            if(TaskList[i].isComplete == false) {
                 FilterList.push(TaskList[i]);
             };
         };
-        UIPart();
+        // UIPart();
+    } else if(mode === "done") {
+        for(let i = 0; i < TaskList.length; i++) {
+            if(TaskList[i].isComplete) {
+                FilterList.push(TaskList[i]);
+            };
+        };
     }
+    UIPart();
 };
 
 // 랜덤의 ID값
